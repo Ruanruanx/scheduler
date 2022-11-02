@@ -7,6 +7,7 @@ import "index.scss";
 
 import Button from "components/Button";
 
+
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
