@@ -22,14 +22,17 @@ export function getInterview(state, interview) {
 }
 
 export function getInterviewersForDay(state,day) {
-    let result = [];
-    for (const date of state.days) {
-        if (date.name === day) {
-            for (let i of date.appointments) {
-                result.push(state.interviewers[i])
-            }
+    const filteredDays = state.days.filter(currentDay => {
+        return currentDay.name===day
+    })
 
-        }
+    if(filteredDays.length===0){
+        return [];
     }
+
+    const result = filteredDays[0].interviewers.map((interviewer)=>{
+        return state.interviewers[interviewer]
+    })
+
     return result;
 }
