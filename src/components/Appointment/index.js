@@ -7,6 +7,7 @@ import Header from "./header";
 import useVisualMode from "hooks/useVisualMode";
 import Form from "./Form";
 import Confirm from "./Confirm";
+import Error from "./Error";
 
 export default function Appointment(props) {
     const EMPTY = "EMPTY";
@@ -16,6 +17,8 @@ export default function Appointment(props) {
     const DELETING = "DELETING";
     const CONFIRM = "CONFIRM";
     const EDIT = "EDIT";
+    const ERROR_SAVE = "ERROR_SAVE";
+    const ERROR_DELETE = "ERROR_DELETE";
 
     const { mode, transition, back } = useVisualMode(
         props.interview ? SHOW : EMPTY
@@ -26,20 +29,23 @@ export default function Appointment(props) {
             interviewer
         };
         transition(SAVING);
-        props.bookInterview(props.id, interview);
+            props
+            .bookInterview(props.id, interview)
+            .then(()=>transition(SHOW))
+            .catch(err =>transition(ERROR_SAVE,true))
     }
 
     function cancelInterview() {
-        transition(DELETING);
-        props.deleteInterview(props.id)
-            .then(() => { transition(EMPTY) })
+        transition(DELETING,true);
+        props
+        .deleteInterview(props.id)
+        .then(() => { transition(EMPTY) })
+        .catch(err=>transition(ERROR_DELETE,true))
     }
 
-    useEffect(() => {
-        if (props.interview) {
-            transition(SHOW)
-        }
-    }, [props.interview])
+    function destroy(){
+        back();
+    }
 
     return (
         <article className="appointment">
@@ -79,6 +85,10 @@ export default function Appointment(props) {
                         onCancel={() => back(EMPTY)}
                         onSave={save}
                     />)}
+                {mode === ERROR_SAVE && <Error message={"Can't save"}
+                onClose={destroy}/>}
+                {mode === ERROR_DELETE && <Error message={"Can't delete"}
+                onClose={destroy}/>}
             </Fragment>
 
         </article>
