@@ -23,9 +23,9 @@ npm run storybook
 ```
 
 ## Screenshot
-![first page to show day and spots]first page to show day and spots(https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%877.png?raw=true)
+![first page to show day and spots](https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%877.png?raw=true)first page to show day and spots
 ![edit the appointment](https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%878.png?raw=true)edit the appointment
-![delete an appointment](https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%8710.png?raw=true)
-![save an appointment](https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%8711.png?raw=true)
-![Show error when the input is not complete](https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%8710.png?raw=true)
-![Confirm before delete](https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%8713.png?raw=true)
+![delete an appointment](https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%8710.png?raw=true)delete an appointment
+![save an appointment](https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%8711.png?raw=true)save an appointment
+![Show error when the input is not complete](https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%8710.png?raw=true)Show error when the input is not complete
+![Confirm before delete](https://github.com/Ruanruanx/scheduler/blob/master/public/images/screenshot/%E5%9B%BE%E7%89%8713.png?raw=true)Confirm before delete
