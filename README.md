@@ -3,6 +3,13 @@
 ## Api setup
 
 Fork and clone the [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) into a new directory 
+Follow the README.md instructions. This will involve a few steps, including:
+
+installing dependencies
+creating the database
+creating a .env.development file in the root directory
+seeding the database
+running the server
 
 ## Setup
 
