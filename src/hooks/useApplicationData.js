@@ -20,8 +20,10 @@ export default function useApplicationData(props) {
       [id]: appointment
     };
     const foundDay = state.days.find(day=>day.appointments.includes(id));
-
+    // Update remaining spots, if interview has scheduled before, the spot won't update
     const days = state.days.map((day)=>{
+      if(state.appointments[id].interview!==null)
+        return day;
       if(day.name === foundDay.name){
         return day={...day,spots:day.spots-1}
       } else {
