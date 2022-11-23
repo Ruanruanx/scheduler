@@ -1,3 +1,4 @@
+//transform data from API to expected value
 export function getAppointmentsForDay(state, day) {
     let result = [];
     for (const date of state.days) {

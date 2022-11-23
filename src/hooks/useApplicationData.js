@@ -19,13 +19,13 @@ export default function useApplicationData(props) {
       ...state.appointments,
       [id]: appointment
     };
-    const foundDay = state.days.find(day=>day.appointments.includes(id));
+    const foundDay = state.days.find(day => day.appointments.includes(id));
     // Update remaining spots, if interview has scheduled before, the spot won't update
-    const days = state.days.map((day)=>{
-      if(state.appointments[id].interview!==null)
+    const days = state.days.map((day) => {
+      if (state.appointments[id].interview !== null)
         return day;
-      if(day.name === foundDay.name){
-        return day={...day,spots:day.spots-1}
+      if (day.name === foundDay.name) {
+        return day = { ...day, spots: day.spots - 1 }
       } else {
         return day;
       }
@@ -50,22 +50,22 @@ export default function useApplicationData(props) {
       [id]: appointment
     }
 
-   const foundDay = state.days.find(day=>day.appointments.includes(id));
+    const foundDay = state.days.find(day => day.appointments.includes(id));
 
-   const days = state.days.map(day=>{
-    if(day.name === foundDay.name){
-      return {...day, spots: day.spots+1}
-    } else {
-      return day;
-    }
-   })
+    const days = state.days.map(day => {
+      if (day.name === foundDay.name) {
+        return { ...day, spots: day.spots + 1 }
+      } else {
+        return day;
+      }
+    })
 
     return axios.delete(`/api/appointments/${id}`, appointment)
       .then(() => {
-        setState((prev) => ({ ...prev, appointments,days }))
+        setState((prev) => ({ ...prev, appointments, days }))
       })
   }
-
+//request all data and store state with response
   useEffect(() => {
     const path1 = "/api/days";
     const path2 = "/api/appointments";

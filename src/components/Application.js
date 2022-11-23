@@ -6,6 +6,7 @@ import Appointment from "./Appointment";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useApplicationData from "../hooks/useApplicationData";
 
+//manage states by combining states
 export default function Application(props) {
   const {
     state,
@@ -18,6 +19,7 @@ export default function Application(props) {
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const interviewers = getInterviewersForDay(state,state.day)
 
+  //use map to iterate the appointments to show each appointment and pass the value to child component
   const appointmentList = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     return (

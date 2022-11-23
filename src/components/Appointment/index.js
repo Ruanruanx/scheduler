@@ -53,7 +53,7 @@ export default function Appointment(props) {
     function destroy(){
         back();
     }
-
+    //show different view according to transition mode
     return (
         <article className="appointment">
             <Header time={props.time} />
