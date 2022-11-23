@@ -19,6 +19,7 @@ export default function Appointment(props) {
     const EDIT = "EDIT";
     const ERROR_SAVE = "ERROR_SAVE";
     const ERROR_DELETE = "ERROR_DELETE";
+    const ERROR_INPUT = "ERROR_INPUT";
 
     const { mode, transition, back } = useVisualMode(
         props.interview ? SHOW : EMPTY
@@ -28,11 +29,17 @@ export default function Appointment(props) {
             student: name,
             interviewer
         };
+        if(!name||!interviewer){
+            transition(ERROR_INPUT)
+        }else{
+            
         transition(SAVING);
             props
             .bookInterview(props.id, interview)
             .then(()=>transition(SHOW))
-            .catch(err =>transition(ERROR_SAVE,true))
+            .catch(err =>transition(ERROR_SAVE,true))  
+        }
+        
     }
 
     function cancelInterview() {
@@ -88,6 +95,8 @@ export default function Appointment(props) {
                 {mode === ERROR_SAVE && <Error message={"Can't save"}
                 onClose={destroy}/>}
                 {mode === ERROR_DELETE && <Error message={"Can't delete"}
+                onClose={destroy}/>}
+                {mode === ERROR_INPUT && <Error message={"You need to input more information"}
                 onClose={destroy}/>}
             </Fragment>
 
